@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selfpay · Loans your solar unit pays back itself</title>
+<meta name="description" content="Selfpay lends to small energy businesses against the power their unit earns. The meter repays the loan. Lenders fund one shared pool on Base, Arbitrum or Tempo. Live on testnet.">
+<meta name="theme-color" content="#0c3b26">
+<meta property="og:title" content="Selfpay · Loans your solar unit pays back itself">
+<meta property="og:description" content="Borrow against the power your unit earns. The loan repays itself. Live on test networks.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c3b26'/%3E%3Cpath d='M17.5 5 8 18h7l-1 9 10-14h-7z' fill='%23c8f169'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-row">
+      <a class="brand" href="index.html" aria-label="Selfpay home"><span class="brand-mark" data-brand></span><span>Self<b>pay</b></span></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#roles">Lend &amp; borrow</a>
+        <a href="#pool">Pool</a>
+        <a href="#calc">Calculator</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn ghost sm hide-sm" href="login.html" id="navLogin">Log in</a>
+        <a class="btn primary sm hide-sm" href="signup.html" id="navSignup">Get started</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><i class="ic" data-icon="menu"></i></button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+      <a href="#how">How it works</a>
+      <a href="#roles">Lend &amp; borrow</a>
+      <a href="#pool">Pool</a>
+      <a href="#calc">Calculator</a>
+      <a href="#faq">FAQ</a>
+      <a href="login.html">Log in</a>
+      <a class="btn primary" href="signup.html">Get started</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-pill reveal"><i>Live</i> On Base, Arbitrum and Tempo testnets</div>
+        <h1 class="reveal">A loan your solar unit <span>pays back itself.</span></h1>
+        <p class="lead reveal">Selfpay lends to small energy businesses against the power their unit earns. Register your meter, see exactly how much you can borrow, and every payment your customers make repays the loan. Lenders fund one shared pool on Base, Arbitrum or Tempo.</p>
+        <div class="hero-cta reveal">
+          <a class="btn primary" href="signup.html?role=borrower">Borrow against my unit <i class="ic arrow" data-icon="arrow"></i></a>
+          <a class="btn ghost" href="signup.html?role=lender">Earn as a lender</a>
+        </div>
+        <div class="hero-proof reveal">
+          <span><i class="ic" data-icon="check"></i> No paperwork</span>
+          <span><i class="ic" data-icon="check"></i> Repays itself</span>
+          <span><i class="ic" data-icon="lock"></i> Locks if payments stop</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="unit-card">
+          <img src="assets/solar-unit.svg" width="600" height="360" alt="A solar panel connected to a battery unit: the kind of asset Selfpay lends against">
+          <div class="chip chip-top"><i class="led"></i> Meter online <b>Live</b></div>
+          <div class="unit-row">
+            <div class="unit-stats">
+              <div class="float-stat"><small>Pool right now</small><strong id="heroPool" data-format="usd0">…</strong></div>
+              <div class="float-stat"><small>Fee on a 28-day loan</small><strong>3%</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> How it works</span>
+        <h2>From a meter number to money in your wallet.</h2>
+        <p class="lead">No bank statements and no guarantors. Your unit's own earnings are the proof.</p>
+      </div>
+      <div class="how-grid">
+        <div class="ad-wrap">
+          <div class="ad-box" id="adBox">
+            <iframe id="storyFrame" src="story.html" title="Amina's story: how Selfpay works" allow="autoplay"></iframe>
+          </div>
+        </div>
+      <div class="steps-grid">
+        <article class="step reveal"><i class="ic" data-icon="user"></i><h3>Register</h3><p>Sign in with your wallet, add your name and choose borrower or lender. One signature, no password.</p></article>
+        <article class="step reveal"><i class="ic" data-icon="meter"></i><h3>Connect your meter</h3><p>Enter your meter number. Your meter starts reporting how much power your unit sells every day.</p></article>
+        <article class="step reveal"><i class="ic" data-icon="chart"></i><h3>Get your limit</h3><p>We score your uptime and consistency, then show what you can borrow for 14, 28, 56 or 84 days.</p></article>
+        <article class="step reveal"><i class="ic" data-icon="cash"></i><h3>Borrow and repay</h3><p>Pick chain and token, confirm, done. Each customer payment repays the lender first. Miss payments and the unit locks.</p></article>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" aria-label="Live pool numbers">
+    <div class="strip reveal" id="strip">
+      <span class="live"><i></i> LIVE · TESTNET POOL</span>
+      <div><small>Pool size</small><strong data-stat="assetsCents" data-format="usd0">…</strong></div>
+      <div><small>Ready to borrow</small><strong data-stat="cashCents" data-format="usd0">…</strong></div>
+      <div><small>Lent out</small><strong data-stat="lentCents" data-format="usd0">…</strong></div>
+      <div><small>Active loans</small><strong data-stat="activeLoans" data-format="int">…</strong></div>
+    </div>
+  </section>
+
+  <section class="section" id="roles" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Two ways to join</span>
+        <h2>Fund the pool, or borrow from it.</h2>
+      </div>
+      <div class="grid grid-2">
+        <article class="role-card borrower reveal">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"/></svg>
+          <span class="eyebrow" style="color:#32511c">For energy businesses</span>
+          <h3>Borrow against your unit.</h3>
+          <ul>
+            <li><i class="ic" data-icon="check"></i> Limit set by your real meter history</li>
+            <li><i class="ic" data-icon="check"></i> A flat 3% fee, no hidden charges</li>
+            <li><i class="ic" data-icon="check"></i> Receive funds on Base, Arbitrum or Tempo</li>
+            <li><i class="ic" data-icon="check"></i> Repayment comes out of customer payments</li>
+          </ul>
+          <a class="btn primary" href="signup.html?role=borrower">Register as a borrower <i class="ic arrow" data-icon="arrow"></i></a>
+        </article>
+        <article class="role-card lender reveal">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7 6 10.2A6 6 0 0 1 12 19a6 6 0 0 1-6-5.8C6 10 8.5 7.2 12 3z"/></svg>
+          <span class="eyebrow" style="color:var(--lime)">For lenders</span>
+          <h3>Put dollars to work.</h3>
+          <ul>
+            <li><i class="ic" data-icon="check"></i> Deposit USDC, USDT or USD from any supported chain</li>
+            <li><i class="ic" data-icon="check"></i> Choose a lock of 7 to 90 days</li>
+            <li><i class="ic" data-icon="check"></i> See cautious, expected and strong outcomes first</li>
+            <li><i class="ic" data-icon="check"></i> Your share grows as loan fees come in</li>
+          </ul>
+          <a class="btn lime" href="signup.html?role=lender">Register as a lender <i class="ic arrow" data-icon="arrow"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pool" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> One shared pool</span>
+        <h2>Money from three chains. One pool.</h2>
+        <p class="lead">Lenders deposit on Base, Arbitrum or Tempo, in USDC, USDT or USD. It all lands in a single pool, so borrowers can be funded from the whole thing.</p>
+      </div>
+      <div class="grid grid-2" style="align-items:stretch">
+        <div class="card reveal">
+          <h3>Where the liquidity came from</h3>
+          <p class="muted" style="margin-bottom:18px">Live from the pool, by deposit chain.</p>
+          <div class="stack" style="--gap:18px" id="chainBars"><div class="skeleton" style="height:70px"></div><div class="skeleton" style="height:70px"></div><div class="skeleton" style="height:70px"></div></div>
+        </div>
+        <div class="card dark reveal">
+          <h3>How funds move</h3>
+          <p style="color:#cfe6d7;margin-bottom:20px">Lenders in, borrowers out. Repayments and fees flow back to the pool, so each lender's share grows.</p>
+          <div class="flow" style="grid-template-columns:1fr">
+            <div class="node" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)">Lenders<small style="color:#b9d8c5">Base · Arbitrum · Tempo</small></div>
+            <div class="pipe" style="margin:0 auto;width:8px;height:18px;background:repeating-linear-gradient(180deg,var(--lime) 0 9px,transparent 9px 18px)"></div>
+            <div class="node" style="background:var(--lime);color:var(--green-950);border-color:var(--lime)">Selfpay pool<small style="color:#32511c">USDC · USDT · USD</small></div>
+            <div class="pipe" style="margin:0 auto;width:8px;height:18px;background:repeating-linear-gradient(180deg,var(--lime) 0 9px,transparent 9px 18px)"></div>
+            <div class="node" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)">Energy businesses<small style="color:#b9d8c5">Paid back from meter income</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="chains reveal" style="margin-top:26px">
+        <span class="chain-chip" style="--c:#2f7fe0"><i></i> Base</span>
+        <span class="chain-chip" style="--c:#2b6cb0"><i></i> Arbitrum</span>
+        <span class="chain-chip" style="--c:#7c4dff"><i></i> Tempo</span>
+        <span class="chain-chip" style="--c:#2775ca"><i></i> USDC</span>
+        <span class="chain-chip" style="--c:#26a17b"><i></i> USDT</span>
+        <span class="chain-chip" style="--c:#0c3b26"><i></i> USD</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="calc">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Try the numbers</span>
+        <h2>See it before you sign up.</h2>
+        <p class="lead">Move the slider. These are the same formulas the app uses.</p>
+      </div>
+      <div class="card reveal" style="padding:clamp(20px,4vw,40px)">
+        <div class="choices" role="tablist" aria-label="Calculator" id="calcTabs">
+          <label class="choice"><input type="radio" name="calcTab" value="borrower" checked><span>I'm a borrower</span></label>
+          <label class="choice"><input type="radio" name="calcTab" value="lender"><span>I'm a lender</span></label>
+        </div>
+
+        <div class="calc" id="calcBorrower" style="margin-top:26px">
+          <div>
+            <div class="field" style="margin-top:0">
+              <label for="dailyRange">My unit collects about</label>
+              <div class="row between"><strong class="num" style="font:700 2.6rem/1 var(--display);letter-spacing:-.03em" id="dailyOut">$9</strong><span class="muted" style="font-weight:600">per day</span></div>
+              <input class="range" id="dailyRange" type="range" min="2" max="60" step="1" value="9">
+              <span class="hint">Roughly what a small solar and battery unit earns from selling power to neighbours.</span>
+            </div>
+          </div>
+          <div>
+            <h3>You could borrow up to</h3>
+            <div class="limit-list" id="limitList"></div>
+            <p class="hint muted" style="margin-top:14px;font-weight:600" id="limitNote"></p>
+          </div>
+        </div>
+
+        <div class="calc" id="calcLender" style="margin-top:26px" hidden>
+          <div>
+            <div class="field" style="margin-top:0">
+              <label for="lendAmount">I want to lend</label>
+              <div class="money"><span>$</span><input id="lendAmount" inputmode="decimal" value="500" autocomplete="off"></div>
+            </div>
+            <div class="field">
+              <span class="label">Lock for</span>
+              <div class="choices" id="lendDays"></div>
+            </div>
+          </div>
+          <div>
+            <h3>You could earn</h3>
+            <div class="limit-list" id="earnList"></div>
+            <p class="hint muted" style="margin-top:14px;font-weight:600">Assumptions, not promises. Fees are only earned on money that is lent out, and some loans may default.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq" style="padding-top:0">
+    <div class="container" style="max-width:900px">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Good questions</span>
+        <h2>Straight answers.</h2>
+      </div>
+      <div class="reveal">
+        <details><summary>Is this real money? <i class="ic" data-icon="plus"></i></summary><p>No. Selfpay runs on test networks with test funds, so nobody can lose or earn real money. The smart contracts are deployed on Base Sepolia, Arbitrum Sepolia and Tempo Moderato, and the live monitor shows them. Meter readings are test data until real meter hardware is connected, which is on our roadmap.</p></details>
+        <details><summary>How does my meter become a limit? <i class="ic" data-icon="plus"></i></summary><p>We look at the last 28 days of your meter. Uptime counts for 45%, how steady your income is counts for 35%, and how much history you have counts for 20%. That gives a reliability score and a limit: half of what your unit is expected to earn over the term, less the fee.</p></details>
+        <details><summary>What if my customers stop paying? <i class="ic" data-icon="plus"></i></summary><p>If a weekly instalment is more than two days late, the unit locks and all revenue goes to the lender until you catch up. Pay what is late and the lock lifts. A loan that stays unpaid for 30 days is written off by the pool.</p></details>
+        <details><summary>What does it cost? <i class="ic" data-icon="plus"></i></summary><p>A flat 3% fee on a 28-day loan, about 39% a year, scaled to the number of days. Shorter loans cost less. There are no other charges.</p></details>
+        <details><summary>Can lenders lose money? <i class="ic" data-icon="plus"></i></summary><p>Yes, in the real world they could. If loans default faster than fees come in, the pool loses value. That is why the lender page shows cautious, expected and strong outcomes before you deposit. Funds are locked for the period you choose.</p></details>
+        <details><summary>What is "1 day = 1 minute"? <i class="ic" data-icon="plus"></i></summary><p>So you can watch a whole loan in one sitting, the demo runs on a fast clock: one demo day passes every real minute. A 28-day loan finishes in about 28 minutes.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:clamp(50px,8vw,90px)">
+    <div class="cta-band reveal">
+      <h2>Ready to see your unit's limit?</h2>
+      <p>It takes one wallet signature and a meter number. Everything runs on test networks.</p>
+      <div class="row" style="justify-content:center">
+        <a class="btn lime" href="signup.html">Create a free account <i class="ic arrow" data-icon="arrow"></i></a>
+        <a class="btn light" href="login.html">I already have one</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <a class="brand" href="index.html" style="font-size:1.25rem"><span class="brand-mark" data-brand style="width:34px;height:34px"></span><span>Self<b>pay</b></span></a>
+      <span>Live on testnet. Test funds. Unaudited. Not financial advice.</span>
+      <span class="row"><a href="testnet.html">Live on-chain monitor</a><a href="#faq">FAQ</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="home.js"></script>
+</body>
+</html>

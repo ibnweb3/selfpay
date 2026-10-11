@@ -1,0 +1,14 @@
+{
+  "chain": "Tempo Moderato testnet",
+  "chainId": 42431,
+  "rpc": "https://rpc.moderato.tempo.xyz",
+  "asset": "0x20c0000000000000000000000000000000000000",
+  "assetName": "PathUSD",
+  "registry": "0x66a59b8ee8ac11d706b1d2ec62777b3e0fcd621d",
+  "pool": "0x54497c09f0fdf7cedc4f03a7639e5cc8b0f23c30",
+  "deployedAt": "2026-10-09T07:13:53.151Z",
+  "fromBlock": 38817671,
+  "explorer": "https://explore.tempo.xyz",
+  "short": "Tempo",
+  "logRange": 50000
+}

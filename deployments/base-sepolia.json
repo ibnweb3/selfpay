@@ -1,0 +1,14 @@
+{
+  "chain": "Base Sepolia testnet",
+  "chainId": 84532,
+  "rpc": "https://sepolia.base.org",
+  "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+  "assetName": "USDC",
+  "registry": "0xd3418907351bf5ec560e9ed3158ae5391157f338",
+  "pool": "0x248d44ae40e26f66c606536e7d254105d5777908",
+  "deployedAt": "2026-10-09T16:19:38.257Z",
+  "fromBlock": 47897299,
+  "explorer": "https://sepolia.basescan.org",
+  "short": "Base",
+  "logRange": 190
+}

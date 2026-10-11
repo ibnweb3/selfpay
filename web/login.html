@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-mode="login">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in to Selfpay</title>
+<meta name="description" content="Log in with your wallet. One signature, no password. Live on testnet.">
+<meta name="theme-color" content="#0c3b26">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c3b26'/%3E%3Cpath d='M17.5 5 8 18h7l-1 9 10-14h-7z' fill='%23c8f169'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth-side">
+    <a class="brand" href="index.html" style="position:relative;z-index:1"><span class="brand-mark" data-brand></span><span>Self<b>pay</b></span></a>
+    <div style="position:relative;z-index:1">
+      <h1>Welcome back. <span>Your meter kept running.</span></h1>
+      <p class="lead" style="color:#cfe6d7;margin-top:18px">Sign in with the same wallet you registered with and pick up where you left off.</p>
+    </div>
+    <div class="auth-quote"><strong>No password to forget.</strong> You sign a short message that proves you own the wallet. Signing cannot move your funds.</div>
+  </aside>
+
+  <main class="auth-main" id="main">
+    <h2>Log in</h2>
+    <p class="lead" style="margin-top:8px">Choose your wallet and approve the signature request.</p>
+
+    <div id="already" class="session-box" hidden>
+      <i class="ic" data-icon="check"></i><span id="alreadyText"></span>
+      <a class="btn primary sm" href="app.html" id="alreadyLink">Open my account</a>
+    </div>
+
+    <form id="joinForm" novalidate>
+      <div class="field">
+        <span class="label">Wallet</span>
+        <div class="wallet-list" id="wallets" aria-live="polite"><div class="skeleton" style="height:62px"></div></div>
+      </div>
+      <div id="formError" class="error-note" role="alert" hidden style="margin-top:18px"></div>
+    </form>
+
+    <p style="margin-top:26px;font-weight:600">New here? <a href="signup.html" class="link-btn" style="padding:0">Create an account</a></p>
+    <p class="muted" style="margin-top:10px;font-size:.9375rem"><a href="index.html" style="font-weight:600">← Back to the home page</a></p>
+  </main>
+</div>
+<script type="module" src="join.js"></script>
+</body>
+</html>

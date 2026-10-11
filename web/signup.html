@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-mode="signup">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create your Selfpay account</title>
+<meta name="description" content="Register with your wallet as a lender or a borrower. One signature, no password. Live on testnet.">
+<meta name="theme-color" content="#0c3b26">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c3b26'/%3E%3Cpath d='M17.5 5 8 18h7l-1 9 10-14h-7z' fill='%23c8f169'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth-side">
+    <a class="brand" href="index.html" style="position:relative;z-index:1"><span class="brand-mark" data-brand></span><span>Self<b>pay</b></span></a>
+    <div style="position:relative;z-index:1">
+      <h1>Your unit earns it. <span>Selfpay lends against it.</span></h1>
+      <p class="lead" style="color:#cfe6d7;margin-top:18px">Join in under a minute. One wallet signature creates your account. No password, no email.</p>
+    </div>
+    <div class="auth-quote"><strong>Live on testnet.</strong> Nothing here moves real money, and signing only proves you own the wallet. It can never spend from it.</div>
+  </aside>
+
+  <main class="auth-main" id="main">
+    <h2>Create your account</h2>
+    <p class="lead" style="margin-top:8px">Tell us who you are, pick a role, then sign with your wallet.</p>
+
+    <div id="already" class="session-box" hidden>
+      <i class="ic" data-icon="check"></i><span id="alreadyText"></span>
+      <a class="btn primary sm" href="app.html" id="alreadyLink">Open my account</a>
+    </div>
+
+    <form id="joinForm" novalidate>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input class="input" id="name" name="name" autocomplete="name" maxlength="60" placeholder="e.g. Amina Bello" required>
+        <span class="hint">Shown inside the app. Letters and numbers only.</span>
+      </div>
+      <fieldset class="field" style="border:0;padding:0;margin-inline:0">
+        <legend class="label" style="padding:0;font-weight:700;margin-bottom:8px">I want to</legend>
+        <div class="role-pick">
+          <label><input type="radio" name="role" value="borrower"><span><strong>Borrow</strong><small>I run a solar or energy unit and want funding.</small></span></label>
+          <label><input type="radio" name="role" value="lender"><span><strong>Lend</strong><small>I want to put dollars into the pool and earn.</small></span></label>
+        </div>
+        <span class="hint">You can add the other role later without registering again.</span>
+      </fieldset>
+
+      <div class="field">
+        <span class="label">Wallet</span>
+        <div class="wallet-list" id="wallets" aria-live="polite"><div class="skeleton" style="height:62px"></div></div>
+      </div>
+      <div id="formError" class="error-note" role="alert" hidden style="margin-top:18px"></div>
+    </form>
+
+    <p style="margin-top:26px;font-weight:600">Already registered? <a href="login.html" class="link-btn" style="padding:0">Log in</a></p>
+    <p class="muted" style="margin-top:10px;font-size:.9375rem"><a href="index.html" style="font-weight:600">← Back to the home page</a></p>
+  </main>
+</div>
+<script type="module" src="join.js"></script>
+</body>
+</html>

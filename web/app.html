@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Selfpay</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#082a1b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c3b26'/%3E%3Cpath d='M17.5 5 8 18h7l-1 9 10-14h-7z' fill='%23c8f169'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<div class="app">
+  <aside class="sidebar" aria-label="Sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark" data-brand></span><span>Self<b>pay</b></span></a>
+    <div class="role-switch" id="roleSwitch" role="group" aria-label="Switch role"></div>
+    <div><div class="side-label" id="navLabel">Menu</div><nav class="side-nav" id="sideNav" aria-label="App"></nav></div>
+    <button class="side-ad" id="adOpen" type="button" aria-label="Watch the 35 second story of how Selfpay works">
+      <svg viewBox="0 0 200 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><rect width="200" height="110" fill="#6fc3ff"/><circle cx="165" cy="26" r="13" fill="#ffd84a"/><rect y="78" width="200" height="32" fill="#5cbb48"/><g transform="translate(48 78)"><rect x="-17" y="-20" width="34" height="20" rx="4" fill="#2c5fd6"/><path d="M-22 -22 L-14 -44 H22 L14 -22Z" fill="#1d4fb3"/></g><g transform="translate(112 78)"><circle cy="-38" r="9" fill="#8a5a3c"/><rect x="-10" y="-30" width="20" height="30" rx="8" fill="#f5c518"/></g><circle class="coin c1" cx="76" cy="58" r="5" fill="#f5c518"/><circle class="coin c2" cx="76" cy="58" r="5" fill="#f5c518"/></svg>
+      <strong>See how Selfpay works</strong>
+    </button>
+    <div class="side-user">
+      <div class="user-card" id="userCard"></div>
+      <button class="side-out" id="signOut" type="button">Log out</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="app-mobile-top" aria-label="Top bar">
+      <a class="brand" href="index.html" aria-label="Selfpay home"><span class="brand-mark" data-brand style="width:36px;height:36px"></span></a>
+      <div class="role-switch light" id="roleSwitchMobile" role="group" aria-label="Switch role"></div>
+      <button class="menu-btn" id="menuOpen" type="button" aria-label="Open menu" style="display:grid"><i class="ic" data-icon="menu"></i></button>
+    </header>
+    <div class="topbar">
+      <span class="badge info" id="roleBadge"><i></i>Borrower</span>
+      <span class="grow"></span>
+      <div class="clock" id="clock" role="timer" aria-label="Demo clock">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="14" fill="none" stroke="#e6eddb" stroke-width="5"/><circle id="clockArc" cx="18" cy="18" r="14" fill="none" stroke="#1f8052" stroke-width="5" stroke-linecap="round" stroke-dasharray="88" stroke-dashoffset="88"/></svg>
+        <div><span id="clockDay">Day …</span><small>1 day = 1 minute</small></div>
+      </div>
+    </div>
+    <main id="view" tabindex="-1" aria-live="polite"></main>
+  </div>
+</div>
+<nav class="bottomnav" id="bottomNav" aria-label="App"></nav>
+<script type="module" src="app/main.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="304" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DFE5E0"/>
+      <stop offset=".24" stop-color="#8F9C95"/>
+      <stop offset=".55" stop-color="#526159"/>
+      <stop offset="1" stop-color="#A9B3AC"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="35" y1="0" x2="245" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#304A49"/>
+      <stop offset=".55" stop-color="#203A3B"/>
+      <stop offset="1" stop-color="#132E30"/>
+    </linearGradient>
+    <linearGradient id="cell" x1="0" y1="0" x2="47" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#385655"/>
+      <stop offset=".5" stop-color="#263F40"/>
+      <stop offset="1" stop-color="#1C3638"/>
+    </linearGradient>
+    <linearGradient id="reflection" x1="0" y1="0" x2="220" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4DAD6" stop-opacity=".14"/>
+      <stop offset=".54" stop-color="#C4DAD6" stop-opacity=".025"/>
+      <stop offset="1" stop-color="#C4DAD6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="batteryFront" x1="108" y1="200" x2="212" y2="314" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFCF8"/>
+      <stop offset="1" stop-color="#E4EAE3"/>
+    </linearGradient>
+    <linearGradient id="batterySide" x1="210" y1="203" x2="239" y2="297" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9D2C9"/>
+      <stop offset="1" stop-color="#A8B5A9"/>
+    </linearGradient>
+    <linearGradient id="batteryTop" x1="135" y1="186" x2="218" y2="208" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DCE4DB"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="130" y1="230" x2="177" y2="261" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3630"/>
+      <stop offset="1" stop-color="#10251F"/>
+    </linearGradient>
+    <linearGradient id="leg" x1="443" y1="204" x2="470" y2="302" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#84918A"/>
+      <stop offset="1" stop-color="#54675B"/>
+    </linearGradient>
+    <filter id="shadow" x="-60%" y="-200%" width="220%" height="500%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <filter id="smallShadow" x="-40%" y="-70%" width="180%" height="240%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <pattern id="cells" x="8" y="7" width="48" height="51" patternUnits="userSpaceOnUse">
+      <rect x="1.5" y="1.5" width="45" height="48" rx="2.2" fill="url(#cell)" stroke="#738B85" stroke-opacity=".32" stroke-width=".6"/>
+      <path d="M12.75 2V49M24 2V49M35.25 2V49" stroke="#9BAFAB" stroke-opacity=".28" stroke-width=".4"/>
+      <path d="M3 9H45M3 17H45M3 25H45M3 33H45M3 41H45" stroke="#9BAFAB" stroke-opacity=".13" stroke-width=".35"/>
+      <path d="M2 2H46" stroke="#A5BBB5" stroke-opacity=".25" stroke-width=".5"/>
+    </pattern>
+  </defs>
+
+  <ellipse cx="335" cy="299" rx="164" ry="17" fill="#4A6756" opacity=".14" filter="url(#shadow)"/>
+  <ellipse cx="167" cy="316" rx="69" ry="12" fill="#3E5946" opacity=".18" filter="url(#smallShadow)"/>
+
+  <path d="M416 181L440 182L473 296L460 301Z" fill="url(#leg)"/>
+  <path d="M440 182L447 181L480 293L473 296Z" fill="#384D42"/>
+  <path d="M300 164L309 166L277 286L268 282Z" fill="#7B8F80"/>
+  <path d="M276 282L462 291L460 299L271 290Z" fill="#728177"/>
+  <path d="M460 296L480 291L491 298L471 304Z" fill="#A4AFA6"/>
+  <path d="M265 282L282 282L291 288L273 292Z" fill="#ABB6AD"/>
+
+  <path d="M334 246C329 280 293 288 252 277C233 272 232 259 216 251" stroke="#8E9E92" stroke-opacity=".15" stroke-width="7" stroke-linecap="round"/>
+  <path d="M334 242C329 276 293 284 252 273C233 268 232 255 216 247" stroke="#566A5C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M334 242C329 276 293 284 252 273C233 268 232 255 216 247" stroke="#A5B2A7" stroke-width="1.1" stroke-linecap="round"/>
+
+  <g transform="matrix(.94 .145 -.295 .785 249 64)">
+    <path d="M0 0H304V224H0Z" fill="#53655B"/>
+    <path d="M0 218H304V225H0Z" fill="#3D5347"/>
+    <path d="M304 0L310 4V225H304Z" fill="#53665B"/>
+    <rect width="304" height="218" rx="2" fill="url(#frame)"/>
+    <rect x="5" y="5" width="294" height="208" rx="1" fill="#132B2B"/>
+    <rect x="8" y="7" width="288" height="204" fill="url(#glass)"/>
+    <rect x="8" y="7" width="288" height="204" fill="url(#cells)"/>
+    <rect x="8" y="7" width="288" height="204" fill="url(#reflection)"/>
+    <path d="M1 1H303M1 1V217" stroke="#EDF2EC" stroke-opacity=".8" stroke-width="1.2"/>
+    <path d="M7 6H297V212" stroke="#C0CBC2" stroke-opacity=".25" stroke-width=".7"/>
+    <path d="M4 215H301" stroke="#D4DCD4" stroke-opacity=".65" stroke-width=".8"/>
+    <path d="M8 7L91 7L236 211H171Z" fill="#AFCFC6" opacity=".025"/>
+    <circle cx="3" cy="3" r="1" fill="#52665A"/>
+    <circle cx="301" cy="3" r="1" fill="#C8D2C9"/>
+    <circle cx="3" cy="215" r="1" fill="#425B4B"/>
+    <circle cx="301" cy="215" r="1" fill="#CFD9CF"/>
+  </g>
+
+  <path d="M133 188Q135 186 139 187L217 199Q220 200 221 204L221 299Q221 305 217 307L191 319L110 306Q104 305 104 298V209Q104 204 109 201Z" fill="#8D9F8D" opacity=".13"/>
+  <path d="M193 213L222 202V298Q222 303 218 305L195 316Z" fill="url(#batterySide)"/>
+  <path d="M106 203L135 188Q138 186 141 187L218 199Q221 200 222 203L193 216Z" fill="url(#batteryTop)"/>
+  <path d="M106 203Q103 204 103 209V296Q103 304 110 305L188 317Q195 318 195 310V220Q195 214 188 213Z" fill="url(#batteryFront)"/>
+  <path d="M108 205L189 218Q191 218 191 221V308" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1.2"/>
+  <path d="M196 218L219 207V297" stroke="#8B9D8B" stroke-opacity=".4" stroke-width=".8"/>
+  <path d="M140 190L141 182Q141 179 145 179L185 185Q189 186 189 190V197L181 196V191L149 186V192Z" fill="#849780"/>
+  <path d="M143 181L184 188" stroke="#B3C2AE" stroke-width="2" stroke-linecap="round"/>
+  <path d="M144 190L184 196" stroke="#738971" stroke-opacity=".2" stroke-width="3" stroke-linecap="round"/>
+  <path d="M123 226Q123 223 126 224L171 231Q175 232 175 236V260Q175 264 171 263L126 256Q123 256 123 253Z" fill="#A8B7A6"/>
+  <path d="M126 228Q126 226 129 226L170 233Q172 233 172 236V257Q172 260 170 259L129 253Q126 252 126 250Z" fill="url(#screen)"/>
+  <path d="M131 231L152 234L152 236L131 233Z" fill="#8CCDA0" opacity=".32"/>
+  <path d="M133 243L136 243.5L136 249L133 248.5Z M139 239L142 239.5L142 250L139 249.5Z M145 241L148 241.5L148 251L145 250.5Z M151 237L154 237.5L154 252L151 251.5Z" fill="#B0DEB1" opacity=".85"/>
+  <path d="M160 245L166 246M160 249L166 250" stroke="#83A789" stroke-width="1.2" stroke-linecap="round"/>
+  <ellipse cx="181" cy="244" rx="2" ry="2.5" fill="#42B166"/>
+  <ellipse cx="180.5" cy="243.5" rx=".7" ry="1" fill="#C1F8BB"/>
+  <path d="M120 272L131 274M120 276L131 278M120 280L131 282M120 284L131 286M120 288L131 290" stroke="#A8B7A3" stroke-opacity=".64" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M139 275L150 277M139 279L150 281M139 283L150 285M139 287L150 289M139 291L150 293" stroke="#A8B7A3" stroke-opacity=".64" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M158 278L169 280M158 282L169 284M158 286L169 288M158 290L169 292M158 294L169 296" stroke="#A8B7A3" stroke-opacity=".64" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M204 230L213 226V233L204 237Z" fill="#4B6250"/>
+  <path d="M206 241L211 239V254L206 256Z" fill="#7E917E"/>
+  <path d="M112 305V310L123 312V307M179 315V320L190 321V316" fill="#71876F"/>
+</svg>

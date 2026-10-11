@@ -1,0 +1,117 @@
+/* Story: compact cartoon + big kinetic "ad" headline that explains Selfpay through Amina. Loaded after style.css. */
+.story { padding-top: 40px; scroll-margin-top: 70px; }
+.story-head h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.25rem, 2.6vw, 1.75rem); letter-spacing: -0.02em; margin: 4px 0 0; text-wrap: balance; }
+.story-card { margin-top: 16px; padding: 12px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: center; border: 1px solid var(--line); border-radius: 26px; background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.stage-wrap { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #6fc3ff; }
+.stage-svg { display: block; width: 100%; height: 100%; --smile: 1; --worry: 0; --wow: 0; }
+.stage-svg[data-mood="worry"] { --smile: 0; --worry: 1; --wow: 0; }
+.stage-svg[data-mood="wow"] { --smile: 0; --worry: 0; --wow: 1; }
+.stage-svg text { font-family: var(--font-body); }
+.stage-svg .sc { display: none; }
+.stage-svg[data-scene="1"] .s1, .stage-svg[data-scene="2"] .s2, .stage-svg[data-scene="3"] .s3, .stage-svg[data-scene="4"] .s4, .stage-svg[data-scene="5"] .s5,
+.stage-svg[data-scene="6"] .s6, .stage-svg[data-scene="7"] .s7, .stage-svg[data-scene="8"] .s8, .stage-svg[data-scene="9"] .s9 { display: block; }
+
+.say { position: absolute; left: 12px; top: 12px; max-width: 60%; padding: 6px 13px; background: #fff; color: var(--ink); border-radius: 16px 16px 16px 4px; font-weight: 700; font-size: clamp(0.75rem, 1.5vw, 0.9375rem); line-height: 1.25; box-shadow: 0 8px 22px rgba(2, 12, 40, 0.28); animation: bubble 260ms ease-out both; pointer-events: none; }
+.say:empty { display: none; }
+.progress { position: absolute; inset: auto 0 0 0; height: 5px; background: rgba(10, 34, 87, 0.2); }
+.progress i { display: block; height: 100%; width: 0; background: var(--lime); }
+.progress i.run { animation: prog var(--dur, 4s) linear forwards; }
+.stage-wrap.paused .stage-svg *, .stage-wrap.paused .progress i, .stage-wrap.paused .say { animation-play-state: paused !important; }
+
+/* ---------- the "ad" panel: big kinetic headline ---------- */
+.ad { display: flex; flex-direction: column; justify-content: center; gap: 0; min-width: 0; padding: 4px 8px 2px 2px; }
+.ad-step { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ad-h { font-family: var(--font-display); margin: 10px 0 10px; font-weight: 800; font-size: clamp(1.7rem, 3.7vw, 3rem); line-height: 1.06; letter-spacing: -0.03em; text-wrap: balance; min-height: 2.1em; }
+.w { display: inline-block; margin-right: 0.22em; opacity: 0; transform: translateY(0.65em) rotate(3deg) scale(0.9); animation: wordin 520ms cubic-bezier(0.2, 0.9, 0.25, 1.25) forwards; animation-delay: calc(var(--i) * 85ms + 60ms); }
+.w.em { position: relative; color: var(--lime); }
+.w.em::after { content: ""; position: absolute; left: 0; right: 0; bottom: -0.02em; height: 0.1em; border-radius: 999px; background: var(--sun); transform: scaleX(0); transform-origin: left; animation: sweep 420ms ease-out forwards; animation-delay: calc(var(--i) * 85ms + 420ms); }
+.ad[data-tone="bad"] .w.em { color: var(--bad); }
+.ad[data-tone="bad"] .w.em::after { background: var(--bad); }
+.ad[data-tone="finale"] .ad-h { font-size: clamp(1.8rem, 3.9vw, 3.2rem); }
+.ad-sub { margin: 0 0 18px; max-width: 34ch; font-size: clamp(1rem, 1.5vw, 1.1875rem); line-height: 1.4; color: rgba(255, 255, 255, 0.88); opacity: 0; transform: translateY(8px); animation: fadeup 450ms ease-out forwards; animation-delay: calc(var(--n, 4) * 85ms + 260ms); }
+/* the headline always plays its short entrance, even while the cartoon is paused, so stepping through scenes never shows blank text */
+
+/* ---------- motion vocabulary ---------- */
+@keyframes bubble { from { opacity: 0; transform: translateY(6px) scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes prog { from { width: 0; } to { width: 100%; } }
+@keyframes wordin { to { opacity: 1; transform: none; } }
+@keyframes sweep { to { transform: scaleX(1); } }
+@keyframes fadeup { to { opacity: 1; transform: none; } }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes wave { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-26deg); } }
+@keyframes fly { 0% { transform: translate(0, 0) scale(0.6); opacity: 0; } 8% { opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; } }
+@keyframes arc { 0% { transform: translate(0, 0) scale(0.6); opacity: 0; } 8% { opacity: 1; } 50% { transform: translate(calc(var(--dx) * 0.5), calc(var(--dy) * 0.5 - 46px)) scale(1); } 92% { opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(0.8); opacity: 0; } }
+@keyframes pop { 0% { transform: scale(0); opacity: 0; } 70% { transform: scale(1.15); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes walkin { from { transform: translate(-190px, 0); } to { transform: none; } }
+@keyframes walkaway { 0% { transform: none; } 100% { transform: translate(-110px, 0); } }
+@keyframes stamp { 0% { transform: scale(2.6); opacity: 0; } 60% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0% { transform: scale(0.7); opacity: 0.9; } 100% { transform: scale(1.25); opacity: 0; } }
+@keyframes lockin { 0% { transform: translateY(-70px) scale(0.4); opacity: 0; } 70% { transform: translateY(6px) scale(1.1); opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes unlock { 0% { transform: none; opacity: 1; } 45% { transform: translateY(-12px) rotate(-10deg); opacity: 1; } 100% { transform: translateY(-46px) scale(0.2); opacity: 0; } }
+@keyframes fall { 0% { transform: translateY(-20px) rotate(0); opacity: 0; } 12% { opacity: 1; } 100% { transform: translateY(240px) rotate(260deg); opacity: 0; } }
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(70px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes flash { 50% { opacity: 0.25; } }
+
+.eyes { transform-box: fill-box; transform-origin: center; animation: blink 4s infinite; }
+.arm-r, .arm-l { transform-box: fill-box; }
+.arm-r { transform-origin: 0 0; }
+.arm-l { transform-origin: 100% 0; }
+.stage-svg[data-scene="1"] .arm-r, .stage-svg[data-scene="8"] .arm-r, .stage-svg[data-scene="3"] .arm-r { animation: wave 0.9s ease-in-out infinite; }
+.fly { animation: fly 1.7s ease-in-out infinite backwards; }
+.fly.arc { animation-name: arc; }
+.pop { animation: pop 420ms ease-out backwards; }
+.walk-in { animation: walkin 0.9s ease-out both; }
+.walk-away { animation: walkaway 2.2s ease-in both; }
+.stamp { animation: stamp 420ms ease-out 1.1s both; }
+.thought { animation: fadein 400ms ease-out both; }
+.pulse { transform-box: fill-box; transform-origin: center; animation: pulse 1.3s ease-out infinite; }
+.lock-in { animation: lockin 600ms ease-out 0.5s both; }
+.unlock { animation: unlock 1.1s ease-in 0.4s both; }
+.late { animation: flash 0.9s steps(2) infinite; }
+.confetti rect { animation: fall 2s ease-in infinite; }
+.confetti rect:nth-child(2) { animation-delay: 0.3s; } .confetti rect:nth-child(3) { animation-delay: 0.7s; }
+.confetti rect:nth-child(4) { animation-delay: 1s; } .confetti rect:nth-child(5) { animation-delay: 0.15s; } .confetti rect:nth-child(6) { animation-delay: 1.3s; }
+.cloud.c1 { animation: drift 40s linear infinite alternate; }
+.cloud.c2 { animation: drift 55s linear infinite alternate-reverse; }
+.sun-rays { transform-box: fill-box; transform-origin: center; animation: spin 26s linear infinite; }
+
+/* ---------- controls ---------- */
+.story-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.ctl { display: flex; align-items: center; gap: 8px; }
+.iconbtn { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--glass-strong); color: #fff; cursor: pointer; user-select: none; transition: background-color 150ms ease-out, transform 150ms ease-out; }
+.iconbtn:active { transform: scale(0.94); }
+.iconbtn.main { width: 52px; height: 52px; background: var(--lime); color: var(--ink); border-color: var(--lime); }
+@media (hover: hover) { .iconbtn:hover { background: rgba(255, 255, 255, 0.2); } .iconbtn.main:hover { background: var(--lime-hover); } }
+.dots { display: flex; gap: 2px; align-items: center; }
+.dots button { width: 22px; height: 40px; background: none; border: 0; padding: 0; cursor: pointer; display: grid; place-items: center; }
+.dots button::before { content: ""; width: 9px; height: 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.35); transition: width 200ms ease-out, background-color 200ms ease-out; }
+.dots button[aria-current="true"]::before { width: 22px; background: var(--lime); }
+@media (hover: hover) { .dots button:hover::before { background: rgba(255, 255, 255, 0.7); } }
+.btn.small { min-height: 44px; padding: 0 18px; font-size: 0.9375rem; }
+.ghost-btn { border: 1px solid var(--line); background: var(--glass); color: #fff; }
+@media (hover: hover) { .ghost-btn:hover { background: var(--glass-strong); } }
+.story-foot { margin: 12px 0 0; color: var(--muted); font-size: 0.75rem; }
+.note a { color: var(--lime); text-decoration: none; font-weight: 600; }
+@media (hover: hover) { .note a:hover { text-decoration: underline; } }
+
+/* ---------- responsive: stack on tablets and phones ---------- */
+@media (max-width: 900px) {
+  .story-card { grid-template-columns: 1fr; gap: 14px; }
+  .ad { padding: 0 4px 4px; }
+  .ad-h { min-height: 0; font-size: clamp(1.6rem, 7vw, 2.6rem); }
+  .ad-sub { max-width: none; margin-bottom: 14px; }
+}
+@media (max-width: 560px) {
+  .story { padding-top: 32px; }
+  .story-card { padding: 10px; border-radius: 22px; }
+  .say { left: 8px; top: 8px; padding: 4px 10px; font-size: 0.6875rem; }
+  .story-controls { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage-svg *, .say, .progress i { animation: none !important; }
+  .progress i { width: 100%; }
+  .w, .ad-sub { animation: none; opacity: 1; transform: none; }
+  .w.em::after { animation: none; transform: scaleX(1); }
+}

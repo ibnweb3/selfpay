@@ -1,0 +1,28 @@
+.env
+.env.*
+!.env.example
+node_modules/
+out/
+cache/
+broadcast/
+tools/
+.sim.json
+.sim.*.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.wrangler/
+
+# local build output, demo recordings and scratch
+dist/
+docs/demo/*.mp4
+docs/demo/*.key
+web/_archive/
+scripts/_archive/
+
+.claude/
+lib/
+web/app.js
+web/src/history.json

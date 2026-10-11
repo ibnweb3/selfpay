@@ -1,0 +1,44 @@
+[
+  {
+    "chain": "Base Sepolia testnet",
+    "chainId": 84532,
+    "rpc": "https://sepolia.base.org",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "assetName": "USDC",
+    "registry": "0xd3418907351bf5ec560e9ed3158ae5391157f338",
+    "pool": "0x248d44ae40e26f66c606536e7d254105d5777908",
+    "deployedAt": "2026-10-09T16:19:38.257Z",
+    "fromBlock": 47897299,
+    "explorer": "https://sepolia.basescan.org",
+    "short": "Base",
+    "logRange": 190
+  },
+  {
+    "chain": "Tempo Moderato testnet",
+    "chainId": 42431,
+    "rpc": "https://rpc.moderato.tempo.xyz",
+    "asset": "0x20c0000000000000000000000000000000000000",
+    "assetName": "PathUSD",
+    "registry": "0x66a59b8ee8ac11d706b1d2ec62777b3e0fcd621d",
+    "pool": "0x54497c09f0fdf7cedc4f03a7639e5cc8b0f23c30",
+    "deployedAt": "2026-10-09T07:13:53.151Z",
+    "fromBlock": 38817671,
+    "explorer": "https://explore.tempo.xyz",
+    "short": "Tempo",
+    "logRange": 50000
+  },
+  {
+    "chain": "Arbitrum Sepolia testnet",
+    "chainId": 421614,
+    "rpc": "https://sepolia-rollup.arbitrum.io/rpc",
+    "asset": "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d",
+    "assetName": "USDC",
+    "registry": "0xd3418907351bf5ec560e9ed3158ae5391157f338",
+    "pool": "0x248d44ae40e26f66c606536e7d254105d5777908",
+    "deployedAt": "2026-10-09T16:21:36.188Z",
+    "fromBlock": 317451237,
+    "explorer": "https://sepolia.arbiscan.io",
+    "short": "Arbitrum",
+    "logRange": 50000
+  }
+]

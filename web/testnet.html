@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selfpay — a loan the machine pays back itself</title>
+<meta name="description" content="Live testnet dashboard: a revenue-backed lending protocol where a device's own earnings repay its loan, and the unit locks if payments stop.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a2f73">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23f5c518'/%3E%3Cg stroke='%2386d13f' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M16 3v4M16 25v4M3 16h4M25 16h4M7 7l3 3M22 22l3 3M25 7l-3 3M10 22l-3 3'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="story.css">
+</head>
+<body data-state="idle">
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top" aria-label="Selfpay home">
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="7" fill="#f5c518"/><g stroke="#86d13f" stroke-width="2.4" stroke-linecap="round"><path d="M16 3v4M16 25v4M3 16h4M25 16h4M7 7l3 3M22 22l3 3M25 7l-3 3M10 22l-3 3"/></g></svg>
+      <span>SELFPAY</span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#top" class="on">Overview</a>
+      <a href="#story">Story</a>
+      <a href="#loan">Loan</a>
+      <a href="#pool">Pool</a>
+      <a href="#activity">Activity</a>
+    </nav>
+    <div class="controls">
+      <a class="btn ghost-btn small" href="index.html">← Selfpay home</a>
+      <label class="sel"><span class="sr">Network</span><select id="network" aria-label="Network"></select></label>
+      <label class="sel"><span class="sr">Device</span><select id="device" aria-label="Device"></select></label>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    
+
+    <div class="wrap hero-grid">
+      <svg class="scene" viewBox="0 0 760 520" preserveAspectRatio="xMaxYMin meet" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="glow" cx="78%" cy="18%" r="60%"><stop offset="0" stop-color="#5aa7ff" stop-opacity=".55"/><stop offset="1" stop-color="#5aa7ff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b4a9c"/><stop offset="1" stop-color="#0c2a63"/></linearGradient>
+        <linearGradient id="roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7be0"/><stop offset="1" stop-color="#123c86"/></linearGradient>
+        <pattern id="cells" width="34" height="22" patternUnits="userSpaceOnUse"><path d="M34 0H0V22" fill="none" stroke="#9cc7ff" stroke-opacity=".45" stroke-width="1.2"/></pattern>
+      </defs>
+      <rect width="760" height="520" fill="url(#glow)"/>
+      <circle class="sun" cx="640" cy="92" r="30" fill="#f5c518"/>
+      <g class="rays" stroke="#f5c518" stroke-width="3" stroke-linecap="round" opacity=".8"><path d="M640 40v-14M640 144v14M588 92h-14M692 92h14M603 55l-10-10M677 129l10 10M677 55l10-10M603 129l-10 10"/></g>
+      <g transform="translate(70 120)">
+        <path d="M0 150 L190 18 H470 L650 150 Z" fill="url(#roof)" stroke="#8cc0ff" stroke-opacity=".5" stroke-width="2"/>
+        <path d="M0 150 L190 18 H470 L650 150 Z" fill="url(#cells)"/>
+        <path d="M60 128 L222 36 H440 L590 128" fill="none" stroke="#cfe4ff" stroke-opacity=".35" stroke-width="2"/>
+        <rect x="40" y="150" width="570" height="215" fill="url(#wall)" stroke="#8cc0ff" stroke-opacity=".25"/>
+        <g class="wins">
+          <rect class="win" x="85" y="186" width="92" height="86" rx="6"/>
+          <rect class="win" x="470" y="186" width="92" height="86" rx="6"/>
+          <rect class="win" x="85" y="288" width="92" height="56" rx="6"/>
+          <rect class="win" x="470" y="288" width="92" height="56" rx="6"/>
+        </g>
+        <rect x="270" y="236" width="110" height="129" rx="8" fill="#0a2257" stroke="#8cc0ff" stroke-opacity=".35"/>
+        <circle cx="362" cy="304" r="5" fill="#86d13f"/>
+        <path d="M0 365H650" stroke="#8cc0ff" stroke-opacity=".3" stroke-width="2"/>
+      </g>
+      <g class="padlock" transform="translate(330 300)">
+        <rect x="-26" y="-8" width="52" height="40" rx="8" fill="#ef4444"/>
+        <path d="M-14 -8V-20a14 14 0 0 1 28 0V-8" fill="none" stroke="#ef4444" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="0" cy="12" r="5" fill="#fff"/>
+      </g>
+    </svg>
+      <div class="hero-copy">
+        <h1>A loan where the machine pays itself back.</h1>
+        <p class="lede">Customers pay a device's vault. Every payment sends the lender's share first. If payments stop, the unit locks and all revenue goes to the lender.</p>
+        <div class="cta">
+          <a class="btn lime" href="#loan">See the live loan</a>
+          <button type="button" class="vault-pill" data-copy-vault aria-label="Copy the vault address customers pay">
+            <span class="coin" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v18M16.5 7.5c-.8-1.2-2.4-2-4.5-2-2.6 0-4.2 1.3-4.2 3 0 4.2 9 2.2 9 6.4 0 1.8-1.8 3.1-4.8 3.1-2.2 0-4-.9-4.8-2.3" fill="none" stroke="#0a2257" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <span class="vp-text"><span class="vp-label">Pay this vault</span><span class="vp-val mono" id="heroVault">—</span></span>
+          </button>
+        </div>
+        <p class="note">Live on testnet · the lock is an on-chain request · <a href="#story">▶ Watch Amina's story</a></p>
+      </div>
+
+      <aside class="float-card" aria-label="Loan repayment snapshot">
+        <div class="fc-head"><span id="heroLabel">Loan repaid</span><span class="fc-arrow" aria-hidden="true">↗</span></div>
+        <div class="fc-big num" id="heroPct">—</div>
+        <div class="fc-sub" id="heroCaption">Waiting for data…</div>
+        <div class="bars" id="heroBars" role="img" aria-label="Recent customer payments"></div>
+        <div class="bars-key"><span>Recent payments</span><span class="num" id="heroCount">—</span></div>
+      </aside>
+    </div>
+
+    <div class="wrap strip-wrap">
+      <div class="strip">
+        <div class="strip-l">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 120 80"><rect width="120" height="80" rx="10" fill="#0f4fb3"/><path d="M14 62 L38 20 H100 L92 62 Z" fill="#2f7be0" stroke="#bcdcff" stroke-opacity=".6"/><path d="M26 41H96M32 62 52 20M58 62 72 20M84 62 92 20" stroke="#bcdcff" stroke-opacity=".5" fill="none"/></svg>
+            <span class="thumb-dot" id="stripDot"></span>
+          </div>
+          <div>
+            <h2>Every payment splits on-chain</h2>
+            <p>Lender first, operator second. The operator has no withdraw button, so repayment can't be skipped.</p>
+          </div>
+        </div>
+
+        <div class="badge" id="badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="ring"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1 -92 0"/></defs><text><textPath href="#circ" startOffset="0" textLength="284" lengthAdjust="spacing">LIVE ON TESTNET • TESTNET ONLY • UNAUDITED •</textPath></text></svg>
+          <span class="badge-core">
+            <svg class="i-run" viewBox="0 0 24 24" width="30" height="30"><circle cx="12" cy="12" r="4.5" fill="#0a2257"/><g stroke="#0a2257" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></g></svg>
+            <svg class="i-lock" viewBox="0 0 24 24" width="30" height="30"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="#fff"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+
+        <div class="strip-r">
+          <div class="nets" aria-label="Deployed on Tempo, Base and Arbitrum testnets">
+            <span class="net n1" title="Tempo">T</span><span class="net n2" title="Base">B</span><span class="net n3" title="Arbitrum">A</span>
+          </div>
+          <dl class="mini">
+            <div><dt>Pool</dt><dd class="num" id="stripPool">—</dd></div>
+            <div><dt>Revenue</dt><dd class="num" id="stripRevenue">—</dd></div>
+            <div><dt>Repaid</dt><dd class="num" id="stripRepaid">—</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap story" id="story" aria-labelledby="storyTitle">
+    <div class="story-head">
+      <div class="eyebrow">Amina's story · 35 seconds</div>
+      <h2 id="storyTitle">Want a loan? Here's how Selfpay works.</h2>
+    </div>
+
+    <div class="story-card" id="storyCard">
+      <div class="stage-wrap" id="stageWrap" data-scene="1">
+        <svg class="stage-svg" id="stage" data-scene="1" data-mood="smile" viewBox="0 0 800 450" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc3ff"/><stop offset="1" stop-color="#e3f4ff"/></linearGradient>
+            <g id="coin"><circle r="8" fill="#f5c518" stroke="#c99a00" stroke-width="2"/><text y="3.6" text-anchor="middle" font-size="10" font-weight="700" fill="#8a6500">$</text></g>
+            <g id="coinB"><circle r="8" fill="#7cc3ff" stroke="#2f7fc4" stroke-width="2"/><text y="3.6" text-anchor="middle" font-size="10" font-weight="700" fill="#1d5b94">$</text></g>
+            <g id="unit">
+              <rect x="-26" y="-30" width="52" height="30" rx="6" fill="#2c5fd6" stroke="#173a8a" stroke-width="3"/>
+              <path d="M-4 -26 L-10 -14 H-2 L-6 -4 L8 -18 H0 L4 -26Z" fill="#f5c518"/>
+              <path d="M-34 -34 L-22 -66 H34 L22 -34Z" fill="#1d4fb3" stroke="#0e2d70" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M-28 -50 H28 M-3 -66 L-9 -34 M15 -66 L9 -34" stroke="#9cc7ff" stroke-width="1.6" fill="none"/>
+              <circle cx="18" cy="-15" r="4.5" style="fill:var(--lamp,#86d13f)" stroke="#173a8a" stroke-width="1.5"/>
+            </g>
+            <g id="vault">
+              <rect x="-38" y="-70" width="76" height="70" rx="10" fill="#1fa39a" stroke="#0d6e68" stroke-width="3"/>
+              <rect x="-22" y="-60" width="44" height="8" rx="4" fill="#0b4f4b"/>
+              <circle cx="0" cy="-27" r="15" fill="#fff" stroke="#0d6e68" stroke-width="3"/>
+              <path d="M0 -37 V-27 H8" stroke="#0d6e68" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+            <g id="jar">
+              <rect x="-44" y="-90" width="88" height="90" rx="14" fill="#cfe8ff" fill-opacity=".6" stroke="#3c8fd6" stroke-width="3"/>
+              <rect x="-48" y="-98" width="96" height="12" rx="6" fill="#3c8fd6"/>
+              <use href="#coinB" x="-24" y="-12"/><use href="#coinB" x="0" y="-12"/><use href="#coinB" x="24" y="-12"/><use href="#coinB" x="-12" y="-29"/><use href="#coinB" x="12" y="-29"/>
+            </g>
+            <g id="padlock">
+              <path d="M-12 -24 V-34 a12 12 0 0 1 24 0 V-24" fill="none" stroke="#ef4444" stroke-width="7" stroke-linecap="round"/>
+              <rect x="-18" y="-26" width="36" height="28" rx="7" fill="#ef4444" stroke="#9b1c1c" stroke-width="2.5"/>
+              <circle cx="0" cy="-12" r="4" fill="#fff"/>
+            </g>
+            <g id="person">
+              <ellipse cy="2" rx="22" ry="5" fill="#000" opacity=".12"/>
+              <rect x="-12" y="-36" width="10" height="36" rx="4" fill="#2b2b3a"/><rect x="2" y="-36" width="10" height="36" rx="4" fill="#2b2b3a"/>
+              <rect x="-20" y="-88" width="40" height="56" rx="14" style="fill:var(--top,#e24b6a)"/>
+              <circle cy="-104" r="18" style="fill:var(--skin,#c68642)"/>
+              <path d="M-18 -108 Q-14 -126 0 -126 Q14 -126 18 -108 Q8 -116 0 -116 Q-8 -116 -18 -108Z" style="fill:var(--hair,#2b1d14)"/>
+              <circle cx="-6" cy="-104" r="2.4" fill="#1d1b19"/><circle cx="6" cy="-104" r="2.4" fill="#1d1b19"/>
+              <path d="M-6 -96 Q0 -91 6 -96" stroke="#3a1c10" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g id="amina">
+              <ellipse cy="2" rx="34" ry="6" fill="#000" opacity=".12"/>
+              <rect x="-16" y="-46" width="12" height="46" rx="5" fill="#3a2a22"/><rect x="4" y="-46" width="12" height="46" rx="5" fill="#3a2a22"/>
+              <path d="M-30 -48 Q-34 -112 -18 -118 H18 Q34 -112 30 -48 Z" fill="#f5c518"/>
+              <path d="M-31 -82 H31 V-72 H-31Z" fill="#86d13f"/>
+              <path class="arm-l" d="M-26 -108 Q-48 -90 -42 -66" stroke="#8a5a3c" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path class="arm-r" d="M26 -108 Q48 -90 42 -66" stroke="#8a5a3c" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <circle cy="-138" r="27" fill="#8a5a3c"/>
+              <path d="M-29 -146 Q-24 -178 0 -178 Q24 -178 29 -146 Q14 -160 0 -160 Q-14 -160 -29 -146Z" fill="#e24b6a"/>
+              <circle cx="22" cy="-168" r="8" fill="#e24b6a"/>
+              <g class="eyes"><circle cx="-9" cy="-138" r="3.3" fill="#1d1b19"/><circle cx="9" cy="-138" r="3.3" fill="#1d1b19"/></g>
+              <circle cx="-17" cy="-128" r="4" fill="#ff9aa2" opacity=".7"/><circle cx="17" cy="-128" r="4" fill="#ff9aa2" opacity=".7"/>
+              <path d="M-10 -126 Q0 -116 10 -126" stroke="#3a1c10" stroke-width="2.8" fill="none" stroke-linecap="round" style="opacity:var(--smile,1)"/>
+              <path d="M-8 -120 Q0 -128 8 -120" stroke="#3a1c10" stroke-width="2.8" fill="none" stroke-linecap="round" style="opacity:var(--worry,0)"/>
+              <ellipse cx="0" cy="-122" rx="4.5" ry="5.5" fill="#3a1c10" style="opacity:var(--wow,0)"/>
+            </g>
+          </defs>
+
+          <!-- backdrop shared by every scene -->
+          <rect width="800" height="450" fill="url(#sky)"/>
+          <g class="sun"><circle cx="716" cy="66" r="28" fill="#ffd84a"/><g class="sun-rays" stroke="#ffd84a" stroke-width="5" stroke-linecap="round"><path d="M716 18v-10M716 114v10M668 66h-10M764 66h10M682 32l-7-7M750 100l7 7M750 32l7-7M682 100l-7 7"/></g></g>
+          <g class="cloud c1"><path d="M60 92 q0-22 24-22 q8-18 32-12 q26-6 32 18 q22 0 22 20 H50 q-10-2-10-4Z" fill="#fff" opacity=".9"/></g>
+          <g class="cloud c2"><path d="M420 54 q0-18 20-18 q8-14 26-10 q22-4 26 16 q18 0 18 16 H412 q-8-2-8-4Z" fill="#fff" opacity=".85"/></g>
+          <rect y="352" width="800" height="98" fill="#5cbb48"/><rect y="352" width="800" height="10" fill="#4aa63a"/>
+
+          <!-- 1 · Meet Amina -->
+          <g class="sc s1">
+            <g transform="translate(520 352)">
+              <rect x="-125" y="-125" width="250" height="125" rx="8" fill="#f3e2c3" stroke="#b58b4c" stroke-width="3"/>
+              <path d="M-138 -125 H138 L124 -158 H-124Z" fill="#e24b6a"/>
+              <path d="M-92 -125 L-82 -158 H-46 L-54 -125Z M-18 -125 L-10 -158 H26 L18 -125Z M56 -125 L62 -158 H98 L90 -125Z" fill="#ffb3c1"/>
+              <rect x="-72" y="-112" width="144" height="24" rx="7" fill="#0a2f73"/><text y="-95" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">SOLAR RENTALS</text>
+              <use href="#unit" x="-68" y="-8"/><use href="#unit" x="0" y="-8"/><use href="#unit" x="68" y="-8"/>
+            </g>
+            <g transform="translate(170 352) scale(1.15)"><use href="#amina"/></g>
+            <g class="walk-in" transform="translate(340 352)"><use href="#person" style="--top:#7a5cff;--skin:#e0ac69"/></g>
+            <g transform="translate(375 270)"><use href="#coin" class="fly" style="--dx:120px;--dy:-26px;animation-delay:0.6s"/></g>
+            <g transform="translate(375 270)"><use href="#coin" class="fly" style="--dx:120px;--dy:-26px;animation-delay:1.45s"/></g>
+            <g transform="translate(375 270)"><use href="#coin" class="fly" style="--dx:120px;--dy:-26px;animation-delay:2.3s"/></g>
+          </g>
+
+          <!-- 2 · She wants to grow, the bank says no -->
+          <g class="sc s2">
+            <g transform="translate(120 352) scale(1.15)"><use href="#amina"/></g>
+            <g class="thought"><ellipse cx="270" cy="150" rx="118" ry="64" fill="#fff" stroke="#c9d8ee" stroke-width="3"/><circle cx="188" cy="226" r="9" fill="#fff" stroke="#c9d8ee" stroke-width="3"/><circle cx="172" cy="250" r="5" fill="#fff" stroke="#c9d8ee" stroke-width="3"/>
+              <g transform="translate(206 150) scale(.3)"><use class="pop" style="animation-delay:0.2s" href="#unit"/></g><g transform="translate(240 150) scale(.3)"><use class="pop" style="animation-delay:0.3s" href="#unit"/></g><g transform="translate(274 150) scale(.3)"><use class="pop" style="animation-delay:0.4s" href="#unit"/></g><g transform="translate(308 150) scale(.3)"><use class="pop" style="animation-delay:0.5s" href="#unit"/></g><g transform="translate(342 150) scale(.3)"><use class="pop" style="animation-delay:0.6s" href="#unit"/></g>
+              <g transform="translate(206 186) scale(.3)"><use class="pop" style="animation-delay:0.7s" href="#unit"/></g><g transform="translate(240 186) scale(.3)"><use class="pop" style="animation-delay:0.8s" href="#unit"/></g><g transform="translate(274 186) scale(.3)"><use class="pop" style="animation-delay:0.9s" href="#unit"/></g><g transform="translate(308 186) scale(.3)"><use class="pop" style="animation-delay:1s" href="#unit"/></g><g transform="translate(342 186) scale(.3)"><use class="pop" style="animation-delay:1.1s" href="#unit"/></g>
+              <text x="270" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#0a2f73">10 more units!</text></g>
+            <g transform="translate(620 352)">
+              <rect x="-95" y="-150" width="190" height="150" fill="#ece5d6" stroke="#9c8a6a" stroke-width="3"/>
+              <path d="M-108 -150 L0 -206 L108 -150Z" fill="#8a6f4d" stroke="#6b5539" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="-72" y="-130" width="18" height="110" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><rect x="-30" y="-130" width="18" height="110" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><rect x="12" y="-130" width="18" height="110" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><rect x="54" y="-130" width="18" height="110" fill="#fff" stroke="#c9bfa8" stroke-width="2"/>
+              <rect x="-40" y="-186" width="80" height="22" rx="5" fill="#0a2f73"/><text y="-170" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">BANK</text>
+            </g>
+            <g transform="translate(620 120)"><g class="stamp"><circle r="28" fill="#ef4444" stroke="#fff" stroke-width="4"/><path d="M-11 -11 L11 11 M11 -11 L-11 11" stroke="#fff" stroke-width="7" stroke-linecap="round"/></g></g>
+            <g transform="translate(540 290)"><rect class="fly" style="--dx:-190px;--dy:-30px;animation-delay:0.7s" x="-9" y="-12" width="18" height="24" rx="2" fill="#fff" stroke="#9aa8c4" stroke-width="2"/></g>
+            <g transform="translate(540 290)"><rect class="fly" style="--dx:-190px;--dy:-30px;animation-delay:1.3s" x="-9" y="-12" width="18" height="24" rx="2" fill="#fff" stroke="#9aa8c4" stroke-width="2"/></g>
+            <g transform="translate(540 290)"><rect class="fly" style="--dx:-190px;--dy:-30px;animation-delay:1.9s" x="-9" y="-12" width="18" height="24" rx="2" fill="#fff" stroke="#9aa8c4" stroke-width="2"/></g>
+          </g>
+
+          <!-- 3 · Enter Selfpay -->
+          <g class="sc s3">
+            <g transform="translate(120 352) scale(.85)"><use href="#person" style="--top:#2f7fe0;--skin:#8a5a3c"/></g>
+            <g transform="translate(205 352) scale(.85)"><use href="#person" style="--top:#f08a24;--skin:#e0ac69"/></g>
+            <g transform="translate(290 352) scale(.85)"><use href="#person" style="--top:#a259ff;--skin:#c68642;--hair:#111"/></g>
+            <g transform="translate(205 128)"><circle r="30" fill="#3c8fd6" stroke="#1d5b94" stroke-width="3"/><path d="M-30 0 H30 M0 -30 V30 M-22 -20 Q0 -8 22 -20 M-22 20 Q0 8 22 20" stroke="#cfe8ff" stroke-width="2.4" fill="none"/><circle r="30" fill="none" stroke="#cfe8ff" stroke-width="2.4" stroke-dasharray="3 5"/></g>
+            <text x="205" y="182" text-anchor="middle" font-size="13" font-weight="700" fill="#0a2f73">Lenders worldwide</text>
+            <g transform="translate(560 352) scale(1.45)"><use href="#jar"/></g>
+            <text x="560" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2f73">Selfpay pool</text>
+            <g transform="translate(150 250)"><use href="#coinB" class="fly arc" style="--dx:370px;--dy:30px;animation-delay:0.3s"/></g>
+            <g transform="translate(205 250)"><use href="#coinB" class="fly arc" style="--dx:320px;--dy:30px;animation-delay:0.8s"/></g>
+            <g transform="translate(260 250)"><use href="#coinB" class="fly arc" style="--dx:270px;--dy:30px;animation-delay:1.3s"/></g>
+            <g transform="translate(150 250)"><use href="#coinB" class="fly arc" style="--dx:370px;--dy:30px;animation-delay:1.8s"/></g>
+            <g transform="translate(205 250)"><use href="#coinB" class="fly arc" style="--dx:320px;--dy:30px;animation-delay:2.3s"/></g>
+            <g transform="translate(710 352) scale(1.05)"><use href="#amina"/></g>
+          </g>
+
+          <!-- 4 · Every unit gets its own vault -->
+          <g class="sc s4">
+            <g transform="translate(330 352) scale(1.5)"><use href="#unit"/></g>
+            <path d="M372 322 C412 322 426 322 470 322" stroke="#3a4668" stroke-width="5" fill="none" stroke-dasharray="7 6"/>
+            <g transform="translate(520 352) scale(1.25)"><use href="#vault"/></g>
+            <circle class="pulse" cx="520" cy="296" r="58" fill="none" stroke="#86d13f" stroke-width="4"/>
+            <text x="520" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="#0a2f73">The unit's own vault</text>
+            <g transform="translate(120 352)"><use href="#person" style="--top:#7a5cff;--skin:#e0ac69"/></g>
+            <text x="120" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#0a2f73">Customer pays here →</text>
+            <g transform="translate(150 270)"><use href="#coin" class="fly arc" style="--dx:370px;--dy:-6px;animation-delay:0.4s"/></g>
+            <g transform="translate(150 270)"><use href="#coin" class="fly arc" style="--dx:370px;--dy:-6px;animation-delay:1.4s"/></g>
+            <g transform="translate(150 270)"><use href="#coin" class="fly arc" style="--dx:370px;--dy:-6px;animation-delay:2.4s"/></g>
+            <g transform="translate(704 352) scale(1.05)"><use href="#amina"/></g>
+          </g>
+
+          <!-- 5 · Borrow against real earnings -->
+          <g class="sc s5">
+            <g transform="translate(110 352) scale(1.15)"><use href="#jar"/></g>
+            <text x="110" y="228" text-anchor="middle" font-size="13" font-weight="700" fill="#0a2f73">Lender pool</text>
+            <g transform="translate(360 352) scale(1.15)"><use href="#amina"/></g>
+            <g transform="translate(150 285)"><use href="#coinB" class="fly arc" style="--dx:180px;--dy:-30px;animation-delay:0.25s"/></g>
+            <g transform="translate(150 285)"><use href="#coinB" class="fly arc" style="--dx:180px;--dy:-30px;animation-delay:0.55s"/></g>
+            <g transform="translate(150 285)"><use href="#coinB" class="fly arc" style="--dx:180px;--dy:-30px;animation-delay:0.85s"/></g>
+            <g transform="translate(150 285)"><use href="#coinB" class="fly arc" style="--dx:180px;--dy:-30px;animation-delay:1.15s"/></g>
+            <g transform="translate(540 352) scale(1.1)"><use href="#unit"/></g>
+            <g transform="translate(610 352) scale(1.1)"><use href="#unit"/></g>
+            <g transform="translate(680 352) scale(1.1)"><use class="pop" style="animation-delay:1.3s" href="#unit"/></g>
+            <g transform="translate(750 352) scale(1.1)"><use class="pop" style="animation-delay:1.55s" href="#unit"/></g>
+            <text x="645" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#0a2f73">More units, more income</text>
+          </g>
+
+          <!-- 6 · The loan pays itself back -->
+          <g class="sc s6">
+            <g transform="translate(100 352)"><use href="#person" style="--top:#7a5cff;--skin:#e0ac69"/></g>
+            <g transform="translate(330 352) scale(1.3)"><use href="#vault"/></g>
+            <g transform="translate(560 352) scale(.95)"><use href="#amina"/></g>
+            <g transform="translate(712 352) scale(1.1)"><use href="#jar"/></g>
+            <g transform="translate(130 272)"><use href="#coin" class="fly arc" style="--dx:200px;--dy:-4px;animation-delay:0.25s"/></g>
+            <g transform="translate(130 272)"><use href="#coin" class="fly arc" style="--dx:200px;--dy:-4px;animation-delay:1.7s"/></g>
+            <g transform="translate(360 262)"><use href="#coinB" class="fly arc" style="--dx:320px;--dy:-10px;animation-delay:0.85s"/></g>
+            <g transform="translate(360 262)"><use href="#coinB" class="fly arc" style="--dx:320px;--dy:-10px;animation-delay:2.3s"/></g>
+            <g transform="translate(360 290)"><use href="#coin" class="fly arc" style="--dx:170px;--dy:-24px;animation-delay:1.05s"/></g>
+            <g transform="translate(360 290)"><use href="#coin" class="fly arc" style="--dx:170px;--dy:-24px;animation-delay:2.5s"/></g>
+            <text x="520" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#2f7fc4">Lender first</text>
+            <text x="560" y="168" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6500">Amina keeps the rest</text>
+          </g>
+
+          <!-- 7 · If payments stop, the unit locks -->
+          <g class="sc s7">
+            <g transform="translate(110 130)"><rect x="-44" y="-36" width="88" height="80" rx="10" fill="#fff" stroke="#c9d8ee" stroke-width="3"/><rect x="-44" y="-36" width="88" height="24" rx="10" fill="#ef4444"/><text y="-19" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">DAY 8</text><text y="22" text-anchor="middle" font-size="22" font-weight="700" fill="#ef4444" class="late">LATE</text></g>
+            <g class="walk-away" transform="translate(110 352)"><use href="#person" style="--top:#7a5cff;--skin:#e0ac69"/></g>
+            <g transform="translate(260 352) scale(1.5)"><use href="#unit" style="--lamp:#5b6577;filter:grayscale(1) brightness(.7)"/></g>
+            <g transform="translate(260 290)"><g class="lock-in"><use href="#padlock" transform="scale(1.5)"/></g></g>
+            <g transform="translate(400 352)"><use href="#amina"/></g>
+            <g transform="translate(540 352) scale(1.2)"><use href="#vault"/></g>
+            <g transform="translate(712 352) scale(1.1)"><use href="#jar"/></g>
+            <g transform="translate(555 262)"><use href="#coinB" class="fly arc" style="--dx:155px;--dy:-4px;animation-delay:0.6s"/></g>
+            <g transform="translate(555 262)"><use href="#coinB" class="fly arc" style="--dx:155px;--dy:-4px;animation-delay:1.2s"/></g>
+            <g transform="translate(555 262)"><use href="#coinB" class="fly arc" style="--dx:155px;--dy:-4px;animation-delay:1.8s"/></g>
+            <text x="630" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#2f7fc4">All revenue → lender</text>
+          </g>
+
+          <!-- 8 · Catch up and it switches back on -->
+          <g class="sc s8">
+            <g transform="translate(240 352) scale(1.5)"><use href="#unit"/></g>
+            <g transform="translate(240 290)"><g class="unlock"><path d="M-12 -24 V-34 a12 12 0 0 1 24 0 V-30" fill="none" stroke="#ef4444" stroke-width="7" stroke-linecap="round" transform="scale(1.5)"/><rect x="-27" y="-39" width="54" height="42" rx="10" fill="#ef4444" stroke="#9b1c1c" stroke-width="3"/></g></g>
+            <g transform="translate(400 352)"><use href="#amina"/></g>
+            <g transform="translate(540 352) scale(1.2)"><use href="#vault"/></g>
+            <g transform="translate(712 352) scale(1.1)"><use href="#jar"/></g>
+            <g transform="translate(440 262)"><use href="#coin" class="fly arc" style="--dx:100px;--dy:0px;animation-delay:0.3s"/></g>
+            <g transform="translate(440 262)"><use href="#coin" class="fly arc" style="--dx:100px;--dy:0px;animation-delay:0.8s"/></g>
+            <g class="confetti"><rect x="170" y="100" width="9" height="14" fill="#f5c518"/><rect x="230" y="70" width="9" height="14" fill="#86d13f"/><rect x="290" y="110" width="9" height="14" fill="#e24b6a"/><rect x="330" y="80" width="9" height="14" fill="#7cc3ff"/><rect x="200" y="140" width="9" height="14" fill="#a259ff"/><rect x="270" y="60" width="9" height="14" fill="#f08a24"/></g>
+          </g>
+
+          <!-- 9 · Finale -->
+          <g class="sc s9">
+            <rect width="800" height="450" fill="#0a2f73"/>
+            <g transform="translate(400 130)"><circle r="30" fill="#f5c518"/><g stroke="#86d13f" stroke-width="5" stroke-linecap="round" class="sun-rays"><path d="M0 -52v-12M0 52v12M-52 0h-12M52 0h12M-37 -37l-8 -8M37 37l8 8M37 -37l8 -8M-37 37l-8 8"/></g></g>
+            <text x="400" y="232" text-anchor="middle" font-size="42" font-weight="700" fill="#fff">SELFPAY</text>
+            <text x="400" y="272" text-anchor="middle" font-size="22" fill="#cfe4ff">A loan the machine pays back itself.</text>
+            <g font-size="15" font-weight="700" text-anchor="middle">
+              <rect x="130" y="312" width="170" height="38" rx="19" fill="#86d13f"/><text x="215" y="337" fill="#0a2257">Lender paid first</text>
+              <rect x="315" y="312" width="170" height="38" rx="19" fill="#f5c518"/><text x="400" y="337" fill="#0a2257">Pays itself back</text>
+              <rect x="500" y="312" width="170" height="38" rx="19" fill="#ef6b6b"/><text x="585" y="337" fill="#fff">Locks if payments stop</text>
+            </g>
+          </g>
+        </svg>
+
+        <div class="say" id="say" aria-hidden="true"></div>
+        <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+      </div>
+
+      <div class="ad" id="ad" data-tone="default">
+        <div class="ad-step" id="adStep">Step 1 of 9</div>
+        <h3 class="ad-h" id="adHead" aria-live="polite" aria-atomic="true"></h3>
+        <p class="ad-sub" id="adSub"></p>
+        <p class="story-foot">A cartoon of how it works. The live dashboard below runs on test networks, and the lock is an on-chain request.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap body">
+    <p id="loading" class="muted" role="status">Loading live data from the chain…</p>
+
+    <div id="empty" class="card empty" hidden>
+      <h2>No devices yet</h2>
+      <p>Register a device with the demo script to see the story run here.</p>
+      <code>node scripts/sim.mjs init</code>
+    </div>
+
+    <div id="app" hidden>
+      <ol class="steps" id="steps" aria-label="Where this device is in the story"></ol>
+
+      <section class="grid" id="loan">
+        <article class="card unit" id="unitCard" aria-live="polite">
+          <div class="eyebrow">Solar + battery unit</div>
+          <div class="unit-row"><span class="dot" id="unitDot" aria-hidden="true"></span><h2 id="unitState">—</h2></div>
+          <p class="muted" id="unitNote">—</p>
+          <dl class="kv">
+            <div><dt>Pay this vault</dt><dd><span class="mono" id="vaultAddr">—</span> <button type="button" class="ghost" id="copyVault" data-copy-vault aria-label="Copy vault address">Copy</button></dd></div>
+            <div><dt>Revenue collected</dt><dd class="num" id="revenue">—</dd></div>
+            <div><dt>Last signed reading</dt><dd class="num" id="reading">—</dd></div>
+            <div><dt>Energy reported</dt><dd class="num" id="units">—</dd></div>
+          </dl>
+        </article>
+
+        <article class="card loan">
+          <div class="eyebrow">Loan</div>
+          <div class="unit-row"><h2 id="loanState">—</h2></div>
+          <div class="bar" role="img" id="loanBarWrap" aria-label="Repayment progress"><div class="bar-fill" id="loanBar"></div><div class="ticks" id="ticks"></div></div>
+          <dl class="kv">
+            <div><dt>Still owed</dt><dd class="num" id="owed">—</dd></div>
+            <div><dt>Repaid so far</dt><dd class="num" id="paid">—</dd></div>
+            <div><dt>Next installment</dt><dd class="num" id="next">—</dd></div>
+            <div><dt>Could borrow now (up to)</dt><dd class="num" id="maxloan">—</dd></div>
+          </dl>
+        </article>
+
+        <article class="card pool" id="pool">
+          <div class="eyebrow">Lender pool</div>
+          <h2 class="num" id="poolAssets">—</h2>
+          <p class="muted">total value, <span id="poolAsset">PathUSD</span></p>
+          <dl class="kv">
+            <div><dt>Cash available</dt><dd class="num" id="poolCash">—</dd></div>
+            <div><dt>Lent out</dt><dd class="num" id="poolOut">—</dd></div>
+            <div><dt>Utilisation</dt><dd class="num" id="poolUtil">—</dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="card flow">
+        <div class="eyebrow">Where customer money has gone</div>
+        <div class="split" role="img" id="splitWrap" aria-label="Share of revenue sent to lender versus operator">
+          <div class="split-l" id="splitL"></div><div class="split-o" id="splitO"></div>
+        </div>
+        <div class="split-key">
+          <span><i class="sw l"></i>Lender <b class="num" id="toLender">—</b></span>
+          <span><i class="sw o"></i>Operator <b class="num" id="toOwner">—</b></span>
+        </div>
+      </section>
+
+      <section class="card feed" id="activity">
+        <div class="eyebrow">Activity</div>
+        <ul id="feed" class="feed-list"></ul>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <p>Testnet only. Contracts are unaudited and loan timings are shortened for the demo. The lock is an on-chain request that a device agent reads; real pay-as-you-go lock hardware is on the roadmap.</p>
+      <p id="contracts" class="mono small"></p>
+    </footer>
+  </div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
